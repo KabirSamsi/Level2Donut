@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-#Have to work in point loss, as well as rat and sprinkle moving next wk.
-=======
-#Have to work in point loss, as well as rat and sprinkle moving next wk. 
->>>>>>> 30ace08ceb7144c69f2ff51ea3fbbbe6ec7cebb5
 def setup():
     size(1920, 1200)
     frameRate(700)
@@ -37,7 +32,6 @@ def setup():
     thpt = loadImage("3pts.png")
     fpt = loadImage("4pts.png")
     vpt = loadImage("5pts.png")
-<<<<<<< HEAD
 
 def trans_rat(x, y):
     pushMatrix()
@@ -50,8 +44,6 @@ def trans_sprinkles(x, y):
     translate(x - 400, y)
     image(sprinkles, x, y)
     popMatrix()
-=======
->>>>>>> 30ace08ceb7144c69f2ff51ea3fbbbe6ec7cebb5
 
 def trans_rat(x, y):
     pushMatrix()
@@ -90,11 +82,7 @@ def draw():
     image(verttable, 0, 400)
     image(table, 0, 800)
     image(verttable, 1720, 800)
-<<<<<<< HEAD
-
-=======
     
->>>>>>> 30ace08ceb7144c69f2ff51ea3fbbbe6ec7cebb5
     pts_drawings = (
         [ipt, 1],
         [tpt, 2],
@@ -107,13 +95,10 @@ def draw():
         image(donut, mouseX, mouseY)
         # image(rat, mouseX -500, mouseY-100)
         trans_rat(mouseX-500, mouseY-100)
-<<<<<<< HEAD
 
         if mouseY >= 0 and mouseY <= 190:
-=======
                 
         if mouseY >= 0 and mouseY <= 190: 
->>>>>>> 30ace08ceb7144c69f2ff51ea3fbbbe6ec7cebb5
             image(sprinkles, 1920-mouseX, 0)
             if mouseX in range(1870-mouseX, 1970-mouseX)and mouseY in range(0, 50):
                 pts -=1
@@ -127,26 +112,17 @@ def draw():
                 for pt in pts_drawings:
                     if pt[1] == pts:
                         image(pt[0], width/2 -400, (height/2) - 200)
-<<<<<<< HEAD
 
-=======
-                
->>>>>>> 30ace08ceb7144c69f2ff51ea3fbbbe6ec7cebb5
     elif mouseY >= 370 and mouseY <= 600:
         image(donut, mouseX, mouseY)
         image(reversedrat, mouseX + 500, mouseY-100)
         image(sprinkles, 1920-mouseX, 400)
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 30ace08ceb7144c69f2ff51ea3fbbbe6ec7cebb5
         if mouseX in range(1870-mouseX, 1970-mouseX) and mouseY in range(370, 420):
             pts -=1
             for pt in pts_drawings:
                 if pt[1] == pts:
                     image(pt[0], width/2 -400, (height/2) - 200)
-<<<<<<< HEAD
 
     elif mouseY >= 0 and mouseY <= 400 and mouseX >= 1720:
         image(donut, mouseX, mouseY)
@@ -162,8 +138,6 @@ def draw():
 
         if mouseY >= 700:
             image(cat, mouseX-200, mouseY - 220)
-
-=======
             
     elif mouseY >= 0 and mouseY <= 400 and mouseX >= 1720:
         image(donut, mouseX, mouseY)
@@ -180,7 +154,6 @@ def draw():
         if mouseY >= 700:
             image(cat, mouseX-200, mouseY - 220)
             
->>>>>>> 30ace08ceb7144c69f2ff51ea3fbbbe6ec7cebb5
     else:
         image(explosion, mouseX, mouseY)
         pts -=1
