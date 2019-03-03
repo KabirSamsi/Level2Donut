@@ -31,7 +31,7 @@ table = pygame.image.load("tabletop.png")
 vert_rat = pygame.image.load("rat copy.png")
 reversed_rat = pygame.image.load("reversed_rat.png")
 sprinkle_donut = pygame.image.load("sprinkle_donut.png")
-cat = pygame.image.load("cat.png")
+depressed_donut = pygame.image.load("depressed_donut.png")
 
 #Resize images
 donut = pygame.transform.scale(donut, (100, 100))
@@ -40,7 +40,7 @@ sprinkles = pygame.transform.scale(sprinkles, (150, 75))
 vert_rat = pygame.transform.scale(vert_rat, (200, 200))
 explosion = pygame.transform.scale(explosion, (100, 100))
 sprinkle_donut = pygame.transform.scale(sprinkle_donut, (400, 400))
-cat = pygame.transform.scale(cat, (250, 250))
+depressed_donut = pygame.transform.scale(depressed_donut, (500, 400))
 
 display.fill((0, 0, 0)) #Background
 
@@ -129,14 +129,13 @@ while not won:
     else:
         display.blit(donut, (donutX, donutY))
 
-    #Adds the rat and/or cat based on ratX and ratY
+    #Adds the rat based on ratX and ratY
     if ratX > 100 and ratY in range(400, 800):
         display.blit(reversed_rat, (ratX, ratY))
     elif (ratX >= 1720 and ratY in range(0, 400)) or (ratX >= 0 and ratY in range(400, 800)):
         display.blit(vert_rat, (ratX, ratY))
     elif ratX >= 1400 and ratY in range(800, 1000):
         display.blit(rat, (ratX, ratY))
-        display.blit(cat, (ratX - 120, ratY- 100))
     else:
         display.blit(rat, (ratX, ratY))
 
@@ -167,8 +166,13 @@ while not won:
         lives -= 1
 
     if lives <= 0 and donutX < 1720 and donutY < 900: #Loss condition
+        time.sleep(1)
+        display.fill((0, 0, 0))
         message = font.render('Sorry, you ran out of points', False, (255, 255, 255))
-        display.blit(message, (600, 300))
+        display.blit(message, (800, 200))
+        display.blit(depressed_donut, (740, 250))
+        message = font.render('Better luck next time!', False, (255, 255, 255))
+        display.blit(message, (850, 700))
 
     elif lives > 0 and donutX >= 1720 and donutY >= 800: #Win condition
         time.sleep(1)
@@ -177,7 +181,7 @@ while not won:
         display.blit(message, (800, 200))
         display.blit(sprinkle_donut, (740, 300))
         message = font.render('You got all the sprinkles with {} lives remaining'.format(lives), False, (255, 255, 255))
-        display.blit(message, (530, 700))
+        display.blit(message, (650, 700))
 
     else: #If game is not won or lost yet
         message = font.render('{} lives left'.format(lives), False, (255, 255, 255))
